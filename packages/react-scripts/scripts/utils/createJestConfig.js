@@ -60,6 +60,9 @@ module.exports = (resolve, rootDir, isEjecting) => {
     moduleNameMapper: {
       '^react-native$': 'react-native-web',
       '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
+      // mmenard-react-scripts BEGIN : Allow jest to resolve the webpack alias for AppSrc
+      '^AppSrc(.*)$': '<rootDir>/src$1',
+      // mmenard-react-scripts END
     },
     moduleFileExtensions: [...paths.moduleFileExtensions, 'node'].filter(
       ext => !ext.includes('mjs')
